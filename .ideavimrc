@@ -13,20 +13,24 @@ set ideajoin
 set commentary
 set surround
 set NERDTree
+set easymotion " Enable easymotion plugin
 
 " Enable window navigation in all IDE windows
 set handler=0
-
-" Enable window navigation between IDE tool windows
-sethandler <C-h> a:vim
-sethandler <C-l> a:vim
-sethandler <C-j> a:vim
-sethandler <C-k> a:vim
 
 " LunarVim-like leader key
 let mapleader = " "
 
 " Navigation between splits and tool windows
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+
+
+" EasyMotion settings
+map <leader><leader>s <Plug>(easymotion-s)
+map <leader><leader>f <Plug>(easymotion-f)
 
 " Buffer navigation
 nnoremap <leader>bn :next<CR>
@@ -36,10 +40,6 @@ nnoremap <leader>bd :bd<CR>
 " Project Explorer
 nnoremap <leader>e :action ActivateProjectToolWindow<CR>
 
-" Search
-nnoremap <leader>ff :action GotoFile<CR>
-nnoremap <leader>fg :action FindInPath<CR>
-nnoremap <leader>fb :action RecentFiles<CR>
 
 " Code actions
 nnoremap <leader>ca :action ShowIntentionActions<CR>
@@ -58,30 +58,3 @@ nnoremap <leader>sh :action SplitHorizontally<CR>
 
 " Terminal
 nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
-nnoremap <leader>ct :action HideActiveWindow<CR>
-
-" Comments
-nnoremap gcc :action CommentByLineComment<CR>
-vnoremap gc :action CommentByLineComment<CR>
-
-" Save and quit
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-
-" No highlight search
-nnoremap <leader>nh :nohlsearch<CR>
-
-" Tabs
-nnoremap <TAB> :action NextTab<CR>
-nnoremap <S-TAB> :action PreviousTab<CR>
-
-" Jump between methods
-nnoremap [[ :action MethodUp<CR>
-nnoremap ]] :action MethodDown<CR>
-
-" Quick documentation
-nnoremap K :action QuickJavaDoc<CR>
-
-" Jump to next/previous error
-nnoremap ]d :action GotoNextError<CR>
-nnoremap [d :action GotoPreviousError<CR>
